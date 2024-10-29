@@ -19,6 +19,7 @@ const initialState: MessageState = sessionStorage.getItem(`yashAppMsgData`)
       showMoreOptions: false,
       moreOptions: CHAT_USER_MORE_OPTIONS,
       selectedChatAppearance: "default",
+      disableTypingAnimation: false,
     };
 
 const reducer = (
@@ -51,6 +52,13 @@ const reducer = (
       };
     }
 
+    case "SET_DISABLE_TYPING_ANIMATION": {
+      return {
+        ...messageState,
+        disableTypingAnimation: action.payload as boolean,
+      };
+    }
+
     default:
       return messageState;
   }
@@ -63,6 +71,7 @@ const MsgAppContext = createContext<AppContextType>({
   setShowOptions: () => null,
   setShowMoreOptions: () => null,
   setSelectedChatAppearance: () => null,
+  setDisableTypingAnimation: () => null,
 });
 
 const MsgAppContextProvider: React.FC<{ children: React.ReactNode }> = ({
@@ -89,6 +98,10 @@ const MsgAppContextProvider: React.FC<{ children: React.ReactNode }> = ({
     dispatch({ type: "SET_SELECTED_CHAT_APPEARANCE", payload });
   };
 
+  const setDisableTypingAnimation = (payload: boolean) => {
+    dispatch({ type: "SET_DISABLE_TYPING_ANIMATION", payload });
+  };
+
   const contextValue: AppContextType = {
     messageState,
     dispatch,
@@ -96,6 +109,7 @@ const MsgAppContextProvider: React.FC<{ children: React.ReactNode }> = ({
     setShowOptions,
     setShowMoreOptions,
     setSelectedChatAppearance,
+    setDisableTypingAnimation,
     // setMessages,
   };
 

@@ -25,9 +25,14 @@ const MainChatComponent = () => {
   const [msgContainerHeight, setMsgContainerHeight] = useState<number>(0);
   const [startNewMessageAnimation, setStartNewMessageAnimation] =
     useState<boolean>(false);
+  const [showContent, setShowContent] = useState(false);
 
   const lastPairRef = useRef<HTMLDivElement>(null);
   const userOptionsContainerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    setShowContent(true);
+  }, []);
 
   useEffect(() => {
     const updateHeight = () => {
@@ -126,7 +131,12 @@ const MainChatComponent = () => {
   };
 
   return (
-    <div className="w-full h-full flex flex-col items-center">
+    // <div className="w-full h-full flex flex-col items-center">
+    <div
+      className={`w-full h-full flex flex-col items-center transition-transform duration-500 ${
+        showContent ? "translate-x-0 opacity-100" : "translate-x-full opacity-0"
+      }`}
+    >
       <div
         className="w-full m-auto px-2 py-2 sm:pr-3 sm:py-3 mdl:pr-4 mdl:py-4 overflow-y-auto contentBody"
         style={{ height: `calc(100% - ${msgContainerHeight}px)` }}
@@ -180,7 +190,8 @@ const MainChatComponent = () => {
                   >
                     {startNewMessageAnimation &&
                     message.role === "bot" &&
-                    key === groupedMessages?.length - 1 ? (
+                    key === groupedMessages?.length - 1 &&
+                    !messageState.disableTypingAnimation ? (
                       <TypeIt
                         options={{
                           speed: 10,
@@ -214,15 +225,19 @@ const MainChatComponent = () => {
                 </span>
               </div>
               <div className="max-w-full sm:max-w-[90%] md:max-w-[80%] mdl:max-w-[70%] lg:max-w-[70%] w-fit ml-3 mdl:ml-4 bg-color4 p-3 rounded-md font-content text-color1 text-base lg:text-lg 2xl:text-xl">
-                <TypeIt
-                  options={{
-                    speed: 10,
-                    waitUntilVisible: true,
-                    cursor: false,
-                  }}
-                >
-                  {WELCOME_MSG}
-                </TypeIt>
+                {!messageState.disableTypingAnimation ? (
+                  <TypeIt
+                    options={{
+                      speed: 10,
+                      waitUntilVisible: true,
+                      cursor: false,
+                    }}
+                  >
+                    {WELCOME_MSG}
+                  </TypeIt>
+                ) : (
+                  WELCOME_MSG
+                )}
               </div>
             </div>
           </div>

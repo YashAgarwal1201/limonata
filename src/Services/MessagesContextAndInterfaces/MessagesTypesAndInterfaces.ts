@@ -12,6 +12,7 @@ export interface MessageState {
   showMoreOptions: boolean;
   moreOptions: ChatOption[];
   selectedChatAppearance: string;
+  disableTypingAnimation: boolean;
 }
 
 export type ChatOption = {
@@ -36,6 +37,7 @@ export interface AppContextType {
   setShowOptions: (showOptions: boolean) => void;
   setShowMoreOptions: (showMoreOptions: boolean) => void;
   setSelectedChatAppearance: (payload: string) => void;
+  setDisableTypingAnimation: (payload: boolean) => void;
 }
 
 export type dispatchParamType = {

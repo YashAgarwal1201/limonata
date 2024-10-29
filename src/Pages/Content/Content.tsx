@@ -174,7 +174,7 @@ const Content: React.FC = () => {
             alt="yash agarwal"
           ></img>
         </div>
-        <h1 className="font-heading h-12 text-2xl sm:text-3xl mdl:text-4xl text-color5 text-center px-2 sm:px-4 md:px-5">
+        <h1 className="font-content h-12 text-2xl sm:text-3xl mdl:text-4xl text-color4 text-center px-2 sm:px-4 md:px-5">
           <TypeIt
             options={{
               speed: 30,
@@ -182,26 +182,32 @@ const Content: React.FC = () => {
               cursor: false,
             }}
           >
-            Hey, myself yash agarwal, and this is my portfolio project
+            Hey, myself{" "}
+            <span className="font-heading text-color5 font-semibold">
+              Yash Agarwal
+            </span>
+            , and this is my{" "}
+            <span className="font-heading text-color5 font-semibold">
+              Portfolio
+            </span>{" "}
+            project
           </TypeIt>
         </h1>
-        <Button
-          title="click to proceed"
-          icon={<span className="material-symbols-rounded">chevron_right</span>}
-          rounded
-          className="mt-20 moving-gradient-bg text-color1"
-          size="large"
-          // onClick={() => {
-          //   if (checked) {
-          //     setNeverShowLandingScreen(true);
-          //     setShowLandingScreen(false);
-          //   } else {
-          //     setShowLandingScreen(false);
-          //   }
-          // }}
-          onClick={handleProceedClick}
-        />
+
+        <div className="animate-bounce">
+          <Button
+            title="click to proceed"
+            icon={
+              <span className="material-symbols-rounded">chevron_right</span>
+            }
+            rounded
+            className="mt-20 moving-gradient-bg animate-bounce text-color1"
+            size="large"
+            onClick={handleProceedClick}
+          />
+        </div>
       </div>
+
       <div className="w-full h-[15%] flex justify-center items-center gap-x-2">
         <Checkbox
           onChange={(e) => setChecked(e.checked as boolean)}

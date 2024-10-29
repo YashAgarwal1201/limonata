@@ -34,7 +34,8 @@ const MenuDialog = ({
     setEasyMode,
     setShowFeedbackDialog,
   } = useAppContext();
-  const { messageState, setSelectedChatAppearance } = useMsgAppContext();
+  const { messageState, setSelectedChatAppearance, setDisableTypingAnimation } =
+    useMsgAppContext();
 
   const handleThemeChange = (themeValue: string) => {
     setThemeSelected(themeValue);
@@ -43,7 +44,12 @@ const MenuDialog = ({
 
   const handleEasyModeChange = (value: boolean) => {
     setEasyMode(value);
-    showToast("success", "Success", `Easy mode turned ${value ? "On" : "Off"}`);
+    // showToast("success", "Success", `Easy mode turned ${value ? "On" : "Off"}`);
+  };
+
+  const handleDisableTypingAnimation = (value: boolean) => {
+    setDisableTypingAnimation(value);
+    // showToast("info", "Info", "Disabled typing animation for chat messages");
   };
 
   return (
@@ -279,6 +285,27 @@ const MenuDialog = ({
 
                   showToast("info", "Info", "Cleared site data");
                 }}
+              />
+            </div>
+          </AccordionTab>
+
+          <AccordionTab
+            header={
+              <div className="flex justify-between items-center font-heading font-medium">
+                <span className="text-black font-subheading not-italic">
+                  Disable typing animation?{" "}
+                </span>
+                <span className="text-black capitalize font-content not-italic">
+                  {messageState.disableTypingAnimation ? "Yes" : "No"}
+                </span>
+              </div>
+            }
+          >
+            <div className="flex justify-between items-center font-content">
+              <span>Disable typing animation for chat messages?</span>
+              <InputSwitch
+                checked={messageState.disableTypingAnimation}
+                onChange={(e) => handleDisableTypingAnimation(e.value)}
               />
             </div>
           </AccordionTab>

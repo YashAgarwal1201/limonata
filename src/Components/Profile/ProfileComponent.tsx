@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import { Card } from "primereact/card";
 // import { TabPanel, TabView } from "primereact/tabview";
@@ -130,6 +130,12 @@ const ProfileComponent = ({ selectedTab, setSelectedTab }) => {
   // const [selectedTab, setSelectedTab] = useState<number>(selectedContentTab); // State for selected tab
   const swiperRef = useRef<any>(null); // Create a ref for Swiper
 
+  const [showContent, setShowContent] = useState(false);
+
+  useEffect(() => {
+    setShowContent(true);
+  }, []);
+
   const handleTabClick = (index: number) => {
     setSelectedTab(index);
     if (swiperRef.current && swiperRef.current.swiper.activeIndex !== index) {
@@ -144,7 +150,14 @@ const ProfileComponent = ({ selectedTab, setSelectedTab }) => {
   }, [selectedTab]);
 
   return (
-    <div className="profile-component w-full h-full flex flex-col items-center gap-y-3 overflow-auto">
+    // <div className="profile-component w-full h-full flex flex-col items-center gap-y-3 overflow-auto">
+    <div
+      className={`profile-component w-full h-full flex flex-col items-center gap-y-3 overflow-auto transition-transform duration-500 ${
+        showContent
+          ? "translate-x-0 opacity-100"
+          : "-translate-x-full opacity-0"
+      }`}
+    >
       <div className="w-full ">
         <div className="w-full h-full mdl:h-[400px] py-10 mdl:py-4 flex flex-col mdl:flex-row justify-center items-center gap-2 mdl:gap-4 lg:gap-7 ">
           <div className="w-[80%] max-w-[200px] h-auto aspect-square rounded-md">
