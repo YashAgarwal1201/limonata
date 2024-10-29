@@ -47,6 +47,11 @@ export const ABOUT_OTHER_PROJECTS = [
         posterLink: "https://thewedography.vercel.app/",
         description: "",
       },
+      {
+        title: "Project Blackcurrant",
+        posterLink: "https://project-blackcurrant.vercel.app/",
+        description: "",
+      },
     ],
   },
   {
