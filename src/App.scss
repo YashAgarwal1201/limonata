@@ -148,14 +148,32 @@
 }
 
 .p-button:focus,
-.p-inputtext:enabled:focus,
-.p-link:focus,
-input:focus,
-textarea:focus {
+// .p-inputtext:enabled:focus,
+.p-link:focus {
   box-shadow: none !important;
   outline: none !important;
+  // border: 2px solid #cb444a;
   border-color: #353735;
   border: 0px;
+}
+
+// .p-inputtextarea:focus,
+.p-inputtextarea:enabled:focus,
+.p-inputtext:enabled:focus,
+.p-inputwrapper:enabled:focus {
+  border-width: 2px;
+  border-style: solid;
+  border-color: var(--color4);
+  outline: none;
+  box-shadow: none;
+}
+
+.p-inputnumber-input {
+  box-shadow: none;
+}
+.p-inputnumber-input:enabled:focus {
+  border: 0px;
+  box-shadow: none;
 }
 
 .p-toast {
@@ -181,7 +199,9 @@ ul {
 
 @media (hover: hover) and (pointer: fine) {
   .p-button:hover,
-  a:hover {
+  a:hover,
+  .feedback-form .form-section:hover,
+  .p-accordion .p-accordion-tab .p-accordion-header:hover {
     color: #353735;
     background-color: #f4f4f4;
     border-color: #f4f4f4;

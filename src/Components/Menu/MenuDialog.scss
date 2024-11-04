@@ -17,10 +17,10 @@
 
 // .p-accordion-tab-active
 .menu-feedback-btn {
-    border-radius: 1rem;
+    // border-radius: 1rem;
 
     .p-accordion-header-link {
-        border-radius: 8px;
+        // border-radius: 8px;
     }
 
     a {
@@ -34,6 +34,31 @@
             padding: 1.25rem;
             pointer-events: all;
             width: 100%;
+        }
+    }
+}
+
+.p-accordion {
+    background-color: transparent;
+
+    .p-accordion-tab {
+        // background-color: transparent;
+        // background-color: red;
+        border-radius: 0.75rem;
+
+        .p-accordion-header {
+            background-color: transparent;
+            border-radius: 0.75rem;
+            color: var(--color1);
+
+            .p-accordion-header-link {
+                background-color: transparent;
+                padding-inline: 0.5rem;
+                padding-block: 1rem;
+            }
+        }
+        .p-accordion-content {
+            background-color: transparent;
         }
     }
 }

@@ -62,24 +62,18 @@ const MenuDialog = ({
       dismissable={true}
       draggable={false}
       header={
-        <div className="text-xl sm:text-2xl lg:text-3xl font-heading font-normal">
+        <h2 className="text-xl sm:text-2xl lg:text-3xl font-heading font-normal">
           More Options
-        </div>
+        </h2>
       }
       className={`aboutDialog min-w-fit w-full md:w-[70%] mdl:w-[60%] lg:w-[50%] 2xl:w-[40%] h-full absolute bottom-0 md:bottom-auto`}
       position={"right"}
       closeIcon={<span className="material-symbols-rounded">close</span>}
     >
-      <div className="h-full p-2 md:p-4 text-color5 bg-color3 rounded-md overflow-y-auto shadow-md">
+      <div className="w-full px-4 py-4 text-color5 bg-color3 rounded-3xl overflow-y-auto">
         <Accordion
-          collapseIcon={
-            <span className="material-symbols-rounded text-color1">
-              expand_less
-            </span>
-          }
-          expandIcon={
-            <span className="material-symbols-rounded">expand_more</span>
-          }
+          collapseIcon={<></>}
+          expandIcon={<></>}
           className="flex flex-col gap-y-2"
           // activeIndex={showKeyboardShortcuts ? 2 : -1}
           activeIndex={openMenuPanel}
@@ -87,9 +81,11 @@ const MenuDialog = ({
           <AccordionTab
             header={
               <div className="flex justify-between items-center font-heading font-medium">
-                <span className="text-black font-subheading not-italic">
-                  Change theme
-                </span>
+                <div className="flex items-center">
+                  <span className="pi pi-palette mr-4"></span>
+                  <h3 className="font-subheading not-italic">Change theme</h3>
+                </div>
+
                 <div className="flex items-center rounded-md border-2">
                   <div className="w-4 h-4 bg-color1 rounded-l-md"></div>
                   <div className="w-4 h-4 bg-color2"></div>
@@ -136,12 +132,17 @@ const MenuDialog = ({
             </div>
           </AccordionTab>
 
+          <div className="block mx-2 my-1 p-0 max-w-full h-[1.5px] bg-color5" />
+
           <AccordionTab
             header={
               <div className="flex justify-between items-center font-heading font-medium">
-                <span className="text-black font-subheading not-italic">
-                  Use easy mode?{" "}
-                </span>
+                <div className="flex items-center">
+                  <span className="pi pi-sliders-h mr-4"></span>
+                  <h3 className="text-black font-subheading not-italic">
+                    Use easy mode?{" "}
+                  </h3>
+                </div>
                 <span className="text-black capitalize font-content not-italic">
                   {state.easyMode ? "Yes" : "No"}
                 </span>
@@ -159,9 +160,14 @@ const MenuDialog = ({
 
           <AccordionTab
             header={
-              <span className="text-black font-subheading font-medium not-italic">
-                Keyboard shortcuts
-              </span>
+              <div className="flex items-center">
+                <span className="text-[16px] material-symbols-rounded mr-4">
+                  keyboard
+                </span>
+                <h3 className="text-black font-subheading not-italic">
+                  Keyboard Shortcuts
+                </h3>
+              </div>
             }
           >
             <div className="font-content">
@@ -171,9 +177,12 @@ const MenuDialog = ({
 
           <AccordionTab
             header={
-              <span className="text-black font-subheading font-medium not-italic">
-                View my resume
-              </span>
+              <div className="flex items-center">
+                <span className="pi pi-id-card mr-4"></span>
+                <h3 className="text-black font-subheading not-italic">
+                  View my resume
+                </h3>
+              </div>
             }
           >
             <div className="font-content flex justify-between items-center">
@@ -189,9 +198,14 @@ const MenuDialog = ({
 
           <AccordionTab
             header={
-              <span className="text-black font-subheading font-medium not-italic">
-                Change chat appearance
-              </span>
+              <div className="flex items-center">
+                <span className="material-symbols-rounded text-[16px] mr-4">
+                  responsive_layout
+                </span>
+                <h3 className="text-black font-subheading not-italic">
+                  Change chat appearance
+                </h3>
+              </div>
             }
           >
             <div className="font-content flex flex-col gap-y-10 justify-between">
@@ -263,9 +277,12 @@ const MenuDialog = ({
           <AccordionTab
             className=""
             header={
-              <span className="text-black font-subheading font-medium not-italic">
-                Clear data
-              </span>
+              <div className="flex items-center">
+                <span className="pi pi-trash mr-4"></span>
+                <h3 className="text-black font-subheading not-italic">
+                  Clear data
+                </h3>
+              </div>
             }
           >
             <div className="flex flex-col flex-wrap gap-y-4">
@@ -292,9 +309,12 @@ const MenuDialog = ({
           <AccordionTab
             header={
               <div className="flex justify-between items-center font-heading font-medium">
-                <span className="text-black font-subheading not-italic">
-                  Disable typing animation?{" "}
-                </span>
+                <div className="flex items-center">
+                  <span className="pi pi-ban mr-4"></span>
+                  <h3 className="text-black font-subheading not-italic">
+                    Disable typing Animation
+                  </h3>
+                </div>{" "}
                 <span className="text-black capitalize font-content not-italic">
                   {messageState.disableTypingAnimation ? "Yes" : "No"}
                 </span>
