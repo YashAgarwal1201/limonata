@@ -75,7 +75,7 @@ const FeedbackFormDialog = () => {
       maskClassName="backdrop-blur"
     >
       <form
-        className="feedback-form w-full rounded-3xl py-4 px-4 text-color5 bg-color3 overflow-y-auto shadow-md"
+        className="feedback-form w-full rounded-3xl py-4 px-4 text-color5 bg-color2 overflow-y-auto shadow-md"
         onSubmit={handleSubmit(onSubmit)}
       >
         <div className="form-section w-full py-4 px-2 flex flex-col gap-y-2 sm:gap-y-3 rounded-xl">
@@ -86,7 +86,7 @@ const FeedbackFormDialog = () => {
           <InputText
             disabled={loading}
             title="Name"
-            className="p-4 bg-color2 text-color4 text-base md:text-lg rounded-3xl font-content"
+            className="p-4 bg-color4 text-color4 text-base md:text-lg rounded-3xl font-content"
             type="text"
             // name="Name"
             maxLength={70}
@@ -111,7 +111,7 @@ const FeedbackFormDialog = () => {
           <InputText
             disabled={loading}
             title="Email address"
-            className={`p-4 bg-color2 text-color4 text-base md:text-lg ${
+            className={`p-4 bg-color4 text-color4 text-base md:text-lg ${
               errors.email
                 ? "border-2 border-red-600"
                 : "border-2 border-transparent"
@@ -147,7 +147,7 @@ const FeedbackFormDialog = () => {
           <InputTextarea
             disabled={loading}
             title="You message"
-            className={`h-[150px] p-4 bg-color2 text-color4 text-base md:text-lg font-content ${
+            className={`h-[150px] p-4 bg-color4 text-color4 text-base md:text-lg font-content ${
               errors.message
                 ? "border-2 border-red-600"
                 : "border-2 border-transparent"
