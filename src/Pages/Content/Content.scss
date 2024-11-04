@@ -18,17 +18,17 @@
 }
 
 .aboutDialog {
-  background-color: transparent;
+  background-color: var(--color1);
   .p-dialog-header,
   .p-sidebar-header {
-    background-color: var(--color2);
+    background-color: transparent;
     color: var(--color5);
     border-top-right-radius: 1rem;
     border-top-left-radius: 1rem;
   }
   .p-dialog-content,
   .p-sidebar-content {
-    background-color: var(--color2);
+    background-color: transparent;
     border-bottom-left-radius: 1rem;
     border-bottom-right-radius: 1rem;
   }

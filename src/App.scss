@@ -201,10 +201,11 @@ ul {
   .p-button:hover,
   a:hover,
   .feedback-form .form-section:hover,
-  .p-accordion .p-accordion-tab .p-accordion-header:hover {
-    color: #353735;
-    background-color: #f4f4f4;
-    border-color: #f4f4f4;
+  .p-accordion .p-accordion-tab .p-accordion-header:hover,
+  .custom-panel-header:hover {
+    color: var(--color5);
+    background-color: var(--color3);
+    border-color: var(--color3);
   }
 }
 

@@ -53,12 +53,29 @@
 
             .p-accordion-header-link {
                 background-color: transparent;
+                color: var(--color5);
+                font-weight: 500;
                 padding-inline: 0.5rem;
                 padding-block: 1rem;
             }
         }
         .p-accordion-content {
             background-color: transparent;
+        }
+    }
+}
+
+.side-menu {
+    .p-panel {
+        .p-panel-header {
+            background-color: transparent;
+            padding-block: 1rem;
+            padding-inline: 0.5rem;
+        }
+        .p-panel-content {
+            background-color: transparent;
+            color: var(--color5);
+            padding-top: 1rem;
         }
     }
 }
