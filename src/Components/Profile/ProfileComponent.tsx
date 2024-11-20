@@ -1,11 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 
 import { Card } from "primereact/card";
-// import { TabPanel, TabView } from "primereact/tabview";
-// import { Mousewheel, Navigation, Pagination } from "swiper";
-// import { Navigation } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
-// import "swiper/swiper-bundle.min.css";
 import "swiper/css/bundle";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
@@ -16,7 +12,6 @@ import {
   ABOUT_ME,
   ABOUT_OTHER_PROJECTS,
   ABOUT_WORK,
-  // aboutInfo,
 } from "../../Data/Data";
 import "./ProfileComponent.scss";
 import MyImg from "./../../assets/logoo.jpg";
@@ -88,6 +83,7 @@ const OtherProjects = () => {
               key={k}
               title={v.title}
               className="w-20 aspect-square p-2 sm:p-3 mdl:p-4 bg-color3 cursor-pointer rounded-full"
+              data-pr-tooltip={v.description}
             >
               <img
                 loading="lazy"
@@ -187,53 +183,6 @@ const ProfileComponent = ({ selectedTab, setSelectedTab }) => {
       </div>
 
       <div className="w-full h-auto flex flex-col gap-y-4">
-        {/* <TabView
-          className="bg-transparent"
-          activeIndex={selectedTab > -1 ? selectedTab : 0}
-        >
-          {ABOUT_ME?.filter(
-            (values) => !values?.header?.toLowerCase()?.includes("contact")
-          )?.map((values, keys) => (
-            <TabPanel
-              header={values?.header}
-              className="w-full flex flex-col gap-2 bg-transparent"
-              contentClassName="p-4 bg-color2"
-              headerClassName="p-0 h-10 md:h-12 lg:h-14 bg-transparent text-color1 text-base sm:text-lg mdl:text-xl font-content font-normal"
-              key={keys}
-              leftIcon={
-                values.header.toLowerCase()?.includes("work") ? (
-                  <span className="material-symbols-rounded">work_history</span>
-                ) : values.header.toLowerCase()?.includes("projects") ? (
-                  <span className="material-symbols-rounded">code</span>
-                ) : values.header.toLowerCase()?.includes("education") ? (
-                  <span className="material-symbols-rounded">school</span>
-                ) : (
-                  ""
-                )
-              }
-            >
-              {values.header?.toLowerCase()?.includes("work") ? <Work /> : null}
-              {values.header?.toLowerCase()?.includes("projects") ? (
-                <OtherProjects />
-              ) : null}
-              {values.header?.toLowerCase()?.includes("education") ? (
-                <Education />
-              ) : null}
-            </TabPanel>
-          ))}
-          <TabPanel
-            header={aboutInfo[aboutInfo.length - 1]?.header}
-            className="w-full flex flex-col gap-2 bg-transparent"
-            contentClassName="p-4 bg-color2"
-            headerClassName="p-0 h-10 md:h-12 lg:h-14 flex gap-x-5 bg-transparent text-color1 text-lg sm:text-xl mdl: text-2xl font-content font-normal"
-            leftIcon={
-              <span className="material-symbols-rounded">alternate_email</span>
-            }
-          >
-            <Contact />
-          </TabPanel>
-        </TabView> */}
-
         <div className="flex gap-4 overflow-x-auto scrollbar-none  px-2 sm:px-3 mdl:px-4">
           {ABOUT_ME?.map((values, index) => (
             <button

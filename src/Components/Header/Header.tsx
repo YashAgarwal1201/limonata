@@ -26,7 +26,7 @@ const Header = ({ showMenuDialog, setShowMenuDialog }: HeaderProps) => {
           icon={
             <span className="material-symbols-rounded">
               {state.selectedContentBtn === "profile"
-                ? "chevron_left"
+                ? "forum"
                 : "account_circle"}
             </span>
           }
