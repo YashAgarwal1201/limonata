@@ -22,8 +22,9 @@ export const ABOUT_WORK = [
     position: "Associate UI Developer, Techolution India",
     projects: [
       "Alan for Talent Fountain",
-      "Owens & Minor",
+
       "Techolution Website",
+      "and 1 client project",
     ],
   },
   {
@@ -37,20 +38,20 @@ export const ABOUT_OTHER_PROJECTS = [
   {
     year: "2024",
     projects: [
-      // {
-      //   title: "Project Banana",
-      //   posterLink: "https://project-bananaa.vercel.app/",
-      //   description: "",
-      // },
       {
         title: "The Wedography Portfolio",
         posterLink: "https://thewedography.vercel.app/",
-        description: "",
+        description: "Portfolio website for 'The Wedography'",
       },
       {
         title: "Project Blackcurrant",
         posterLink: "https://project-blackcurrant.vercel.app/",
         description: "",
+      },
+      {
+        title: "Orchid Store",
+        posterLink: "https://orchid-project.vercel.app/",
+        description: "Vuejs training assignment",
       },
     ],
   },
@@ -152,8 +153,8 @@ export const aboutInfo = [
         description: "Associate UI Developer @ Techolution, India.",
         projects: [
           "Alan for talent fountain",
-          "Owens & Minor",
           "Techolution website",
+          "and 1 client project",
         ],
       },
     ],
