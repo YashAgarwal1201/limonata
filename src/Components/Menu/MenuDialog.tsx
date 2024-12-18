@@ -356,6 +356,18 @@ import { Button } from "primereact/button";
 import { InputSwitch } from "primereact/inputswitch";
 import { Panel } from "primereact/panel";
 import { Sidebar } from "primereact/sidebar";
+import {
+  EmailIcon,
+  EmailShareButton,
+  LinkedinIcon,
+  LinkedinShareButton,
+  RedditIcon,
+  RedditShareButton,
+  TelegramIcon,
+  TelegramShareButton,
+  WhatsappIcon,
+  WhatsappShareButton,
+} from "react-share";
 
 import { themes } from "../../Data/Data";
 import { useAppContext } from "../../Services/AppContext";
@@ -379,6 +391,9 @@ const MenuDialog = ({
   const { state, showToast, setThemeSelected, setEasyMode } = useAppContext();
   const { messageState, setSelectedChatAppearance, setDisableTypingAnimation } =
     useMsgAppContext();
+
+  const shareUrl = window.location.href;
+  const shareText = "Check out this website!";
 
   const handlePanelToggle = (index: number) => {
     setOpenMenuPanel((prevIndex) => (prevIndex === index ? -1 : index));
@@ -532,7 +547,7 @@ const MenuDialog = ({
                 onClick={togglePanel}
               >
                 <h3 className="font-subheading font-medium text-lg sm:text-xl text-color5 flex items-center">
-                  <span className="pi pi-sliders-h mr-4"></span>
+                  <span className="pi pi-sliders-v mr-4"></span>
                   Keyboard Shortcuts
                 </h3>
               </div>
@@ -575,6 +590,64 @@ const MenuDialog = ({
           <div className="flex justify-between">
             <span>Download my resume:</span>
             <Button icon="pi pi-download" label="Download" />
+          </div>
+        </Panel>
+
+        <div className="mx-2 my-1 p-0 max-w-full h-[1.5px] bg-color4" />
+
+        {/* Share Page Panel */}
+        <Panel
+          headerTemplate={(options) => {
+            const togglePanel = (event: React.MouseEvent<HTMLElement>) => {
+              options.onTogglerClick!(event); // Trigger expand/collapse behavior
+            };
+
+            return (
+              <div
+                className="cursor-pointer custom-panel-header w-full flex justify-between items-center px-2 py-4 rounded-xl"
+                onClick={togglePanel}
+              >
+                <h3 className="font-subheading font-medium text-lg sm:text-xl text-color5 flex items-center">
+                  <span className="pi pi-share-alt mr-4"></span>
+                  Share
+                </h3>
+              </div>
+            );
+          }}
+          className="bg-transparent rounded-2xl"
+          toggleable
+          collapsed={openMenuPanel !== 5}
+          onToggle={() => handlePanelToggle(5)}
+        >
+          <div className="flex justify-center items-center gap-4">
+            {/* WhatsApp */}
+            <WhatsappShareButton url={shareUrl} title={shareText}>
+              <WhatsappIcon size={40} round />
+            </WhatsappShareButton>
+
+            {/* LinkedIn */}
+            <LinkedinShareButton url={shareUrl}>
+              <LinkedinIcon size={40} round />
+            </LinkedinShareButton>
+
+            {/* Reddit */}
+            <RedditShareButton url={shareUrl} title={shareText}>
+              <RedditIcon size={40} round />
+            </RedditShareButton>
+
+            {/* Telegram */}
+            <TelegramShareButton url={shareUrl} title={shareText}>
+              <TelegramIcon size={40} round />
+            </TelegramShareButton>
+
+            {/* Email */}
+            <EmailShareButton
+              url={shareUrl}
+              subject="Check out this site"
+              body={shareText}
+            >
+              <EmailIcon size={40} round />
+            </EmailShareButton>
           </div>
         </Panel>
 
