@@ -82,7 +82,7 @@ const OtherProjects = () => {
               target="_blank"
               key={k}
               title={v.title}
-              className="w-20 aspect-square p-2 sm:p-3 mdl:p-4 bg-color3 cursor-pointer rounded-full"
+              className="w-20 aspect-square p-2 sm:p-3 mdl:p-4 bg-[#fff] cursor-pointer rounded-full"
               data-pr-tooltip={v.description}
             >
               <img
